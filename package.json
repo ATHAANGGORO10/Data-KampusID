@@ -1,0 +1,21 @@
+{
+  "name": "kampusid",
+  "version": "1.0.0",
+  "description": "kampusid sebuah kampus terbaik di indonesia.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -o src/css/output.css",
+    "dev": "tailwindcss -o src/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "ATHAANGGORO10",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3"
+  }
+}
