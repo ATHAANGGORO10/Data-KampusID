@@ -2,11 +2,10 @@
   include '../includes/server.php';
 
 if (isset($_POST['login'])) {
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
-
-    $query_email = "SELECT * FROM tbl_auth_mahasiswa WHERE email = '$email'";
-    $result = mysqli_query($connection, $query_email);
+    $email        = mysqli_real_escape_string($connection, $_POST['email']);
+    $password     = mysqli_real_escape_string($connection, $_POST['password']);
+    $query_email  = "SELECT * FROM tbl_auth_mahasiswa WHERE email = '$email'";
+    $result       = mysqli_query($connection, $query_email);
 
     if (mysqli_num_rows($result) > 0) {
         $auth_mahasiswa = mysqli_fetch_assoc($result);

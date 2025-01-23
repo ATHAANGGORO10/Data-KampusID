@@ -2,35 +2,30 @@
   include '../includes/server.php';
 
   if (isset($_POST['create'])) {
-    $nisn_mahasiswa = $_POST['nisn_mahasiswa'];
-    $nama_lengkap = $_POST['nama_lengkap'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $tempat_lahir = $_POST['tempat_lahir'];
-    $tanggal_lahir = $_POST['tanggal_lahir'];
-    $agama_mahasiswa = $_POST['agama_mahasiswa'];
-    $nomer_telpon = $_POST['nomer_telpon'];
-    $alamat_mahasiswa = $_POST['alamat_mahasiswa'];
-
-    $asal_sekolah = $_POST['asal_sekolah'];
-    $jurusan_sekolah = $_POST['jurusan_sekolah'];
-    $jenjang_sekolah = $_POST['jenjang_sekolah'];
-    $universitas = $_POST['universitas'];
-    $program_studi = $_POST['program_studi'];
-    $nik_mahasiswa = $_POST['nik_mahasiswa'];
-
-    $photo_mahasiswa = $_POST['photo_mahasiswa'];
-    $email_mahasiswa = $_POST['email_mahasiswa'];
-    $nama_ayah = $_POST['nama_ayah'];
-    $nama_ibu = $_POST['nama_ibu'];
-    $pekerjaan_wali = $_POST['pekerjaan_wali'];
-    $pekerjaan_ibu = $_POST['pekerjaan_ibu'];
-    $nomer_telpon_rumah = $_POST['nomer_telpon_rumah'];
+    $nisn_mahasiswa       = mysqli_escape_string($connection,  $_POST['nisn_mahasiswa']);
+    $nama_lengkap         = mysqli_escape_string($connection,  $_POST['nama_lengkap']);
+    $jenis_kelamin        = mysqli_escape_string($connection,  $_POST['jenis_kelamin']);
+    $tempat_lahir         = mysqli_escape_string($connection,  $_POST['tempat_lahir']);
+    $tanggal_lahir        = mysqli_escape_string($connection,  $_POST['tanggal_lahir']);
+    $agama_mahasiswa      = mysqli_escape_string($connection,  $_POST['agama_mahasiswa']);
+    $nomer_telpon         = mysqli_escape_string($connection,  $_POST['nomer_telpon']);
+    $alamat_mahasiswa     = mysqli_escape_string($connection,  $_POST['alamat_mahasiswa']);
+    $asal_sekolah         = mysqli_escape_string($connection,  $_POST['asal_sekolah']);
+    $jurusan_sekolah      = mysqli_escape_string($connection,  $_POST['jurusan_sekolah']);
+    $jenjang_sekolah      = mysqli_escape_string($connection,  $_POST['jenjang_sekolah']);
+    $universitas          = mysqli_escape_string($connection,  $_POST['universitas']);
+    $program_studi        = mysqli_escape_string($connection,  $_POST['program_studi']);
+    $nik_mahasiswa        = mysqli_escape_string($connection,  $_POST['nik_mahasiswa']);
+    $nama_ayah            = mysqli_escape_string($connection,  $_POST['nama_ayah']);
+    $nama_ibu             = mysqli_escape_string($connection,  $_POST['nama_ibu']);
+    $pekerjaan_wali       = mysqli_escape_string($connection,  $_POST['pekerjaan_wali']);
+    $pekerjaan_ibu        = mysqli_escape_string($connection,  $_POST['pekerjaan_ibu']);
 
     $query = "INSERT INTO 
-                tbl_mahasiswa (
+                tbl_data_mahasiswa (
                   nisn_mahasiswa,
                   nama_lengkap,
-                  jenis_kelamin,
+                  jenis_kelamin,  
                   tempat_lahir,
                   tanggal_lahir,
                   agama_mahasiswa,
@@ -42,13 +37,10 @@
                   universitas,
                   program_studi,
                   nik_mahasiswa,
-                  photo_mahasiswa,
-                  email_mahasiswa,
                   nama_ayah,
                   nama_ibu,
                   pekerjaan_wali,
                   pekerjaan_ibu,
-                  nomer_telpon_rumah,
                   created_at,
                   updated_at
                 ) 
@@ -67,13 +59,12 @@
                 '$universitas',
                 '$program_studi',
                 '$nik_mahasiswa',
-                '$photo_mahasiswa',
-                '$email_mahasiswa',
                 '$nama_ayah',
                 '$nama_ibu',
                 '$pekerjaan_wali',
                 '$pekerjaan_ibu',
-                '$nomer_telpon_rumah',
+                NOW(),
+                NOW()
               )";
     if (mysqli_query($connection, $query)) {
       session_start();

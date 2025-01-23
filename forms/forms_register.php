@@ -2,10 +2,10 @@
   include '../includes/server.php';
 
   if (isset($_POST['register'])) {
-    $name = mysqli_escape_string($connection,  $_POST['name']);
-    $email = mysqli_escape_string($connection,  $_POST['email']);
-    $password = mysqli_escape_string($connection,  $_POST['password']);
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $name       = mysqli_escape_string($connection,  $_POST['name']);
+    $email      = mysqli_escape_string($connection,  $_POST['email']);
+    $password   = mysqli_escape_string($connection,  $_POST['password']);
+    $password   = password_hash($password, PASSWORD_DEFAULT);
 
     $query_email = "SELECT * FROM tbl_auth_mahasiswa WHERE email = '$email'";
     $query_email = mysqli_query($connection, $query_email);

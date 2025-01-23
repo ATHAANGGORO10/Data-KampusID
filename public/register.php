@@ -29,3 +29,4 @@
     <button type="submit" name="register" class="w-full bg-blue-500 text-white py-3 rounded-3xl font-semibold hover:bg-blue-600 transition duration-200">Daftar</button>
   </aside>
 </form>
+
